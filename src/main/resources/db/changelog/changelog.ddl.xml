@@ -1,0 +1,103 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="Stanislave (generated)" id="1712258744759-1">
+        <createTable tableName="excursion">
+            <column name="average_rating" type="FLOAT4"/>
+            <column name="price" type="FLOAT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_ratings_count" type="INTEGER"/>
+            <column name="date_end" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_start" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column autoIncrement="true" name="excursion_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="excursion_pkey"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-2">
+        <createTable tableName="excursion_photos">
+            <column name="excursion_id" type="BIGINT"/>
+            <column autoIncrement="true" name="photo_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="excursion_photos_pkey"/>
+            </column>
+            <column name="photo_url" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-3">
+        <createTable tableName="hotel">
+            <column name="average_rating" type="FLOAT4"/>
+            <column name="parking" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="room_price" type="FLOAT4"/>
+            <column name="user_ratings_count" type="INTEGER"/>
+            <column name="wifi" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="hotel_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="hotel_pkey"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-4">
+        <createTable tableName="hotel_photos">
+            <column name="hotel_id" type="BIGINT"/>
+            <column autoIncrement="true" name="photo_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="hotel_photos_pkey"/>
+            </column>
+            <column name="photo_url" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-5">
+        <createTable tableName="users">
+            <column name="score" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column autoIncrement="true" name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-6">
+        <createTable tableName="users_owned_hats">
+            <column name="owned_hats_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-7">
+        <addUniqueConstraint columnNames="owned_hats_id" constraintName="users_owned_hats_owned_hats_id_key" tableName="users_owned_hats"/>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-8">
+        <createTable tableName="hat">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="hat_pkey"/>
+            </column>
+            <column name="icon_path" type="VARCHAR(255)"/>
+            <column name="image_path" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-9">
+        <addForeignKeyConstraint baseColumnNames="user_user_id" baseTableName="users_owned_hats" constraintName="fk9ybqou9c3rncm7m06wxpoh7mt" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="Stanislave (generated)" id="1712258744759-10">
+        <addForeignKeyConstraint baseColumnNames="owned_hats_id" baseTableName="users_owned_hats" constraintName="fkl8nde7qgif277u3vyu8u7qums" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="hat" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
