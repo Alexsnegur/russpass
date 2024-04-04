@@ -43,7 +43,6 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>3.6.2</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -70,6 +69,7 @@
 					<username>postgres</username>
 					<password>24812</password>
 					<outputChangeLogFile>src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>
+					<changeLogFile>src/main/resources/db/changelog/changelog.sql</changeLogFile>
 				</configuration>
 			</plugin>
 		</plugins>
