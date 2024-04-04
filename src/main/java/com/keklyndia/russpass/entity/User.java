@@ -26,10 +26,11 @@ public class User {
     @OneToMany
     private List<Hat> ownedHats;
 
-    public User(String username, String email, Date registrationDate, int score){
+    public User(String username, String email, Date registrationDate, int score, List<Hat> ownedHats) {
         this.username = username;
         this.email = email;
         this.registrationDate = registrationDate;
         this.score = score;
+        this.ownedHats = ownedHats;
     }
 }
