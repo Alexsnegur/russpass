@@ -26,7 +26,7 @@ public class SaveFIle {
         } else throw new FileSystemException("Пошел нахуй");
     }
     public static boolean checkFile(String fileName){
-        String[] extensionOfImg = {".png", ".jpg"};
+        String[] extensionOfImg = {".png", ".jpeg"};
         int dotIndex = fileName.lastIndexOf('.');
         String extension = (dotIndex == -1) ? "" : fileName.substring(dotIndex);
         System.out.println(extension);

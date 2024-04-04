@@ -2,6 +2,7 @@ package com.keklyndia.russpass.controller;
 
 import com.keklyndia.russpass.entity.User;
 import com.keklyndia.russpass.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,27 +11,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 @RequestMapping(path="/user")
 public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
-    @PostMapping(path="/add")
+    @PostMapping()
     public ResponseEntity<User> addNewUser (@RequestBody User newUser) {
         userService.saveUser(newUser);
-        logger.info("Добавлен юзер");
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
 
-    @DeleteMapping(path="/{id}/delete")
+    @DeleteMapping(path="/{id}")
     public ResponseEntity<String> deleteUser (@PathVariable(name = "id") Long id) {
         userService.deleteUser(id);
         logger.info("Отель удален");
         return ResponseEntity.ok().body("успешно");
     }
-    @GetMapping(path="/all")
+    @GetMapping()
     public @ResponseBody Iterable<User> getAllUsers() {
         return userService.getAllUsers();
     }

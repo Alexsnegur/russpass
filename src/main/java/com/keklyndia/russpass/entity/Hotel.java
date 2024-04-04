@@ -21,6 +21,7 @@ public class Hotel {
     private Long id;
     private String name;
     private String city;
+    private String address;
     private boolean wifi;
     private boolean parking;
     private boolean restaurant;

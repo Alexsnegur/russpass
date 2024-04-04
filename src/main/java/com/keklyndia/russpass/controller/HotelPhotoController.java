@@ -21,15 +21,6 @@ public class HotelPhotoController {
     public @ResponseBody Iterable<HotelPhoto> getAllPhotoHotel(@PathVariable(name = "id") Long id) {
         return hotelService.getAllPhotoByHotelId(id);
     }
-
-
-    /**
-     * Прикрепить фото
-     * @param Файл фото
-     * @param id
-     * @return
-     * @throws FileSystemException
-     */
     @PostMapping(path = "/{id}")
     public ResponseEntity<HotelPhoto> addHotelNewPhoto(@RequestParam("img") MultipartFile multipartFile,
                                                        @PathVariable(name = "id") Long id) throws FileSystemException {
@@ -38,11 +29,10 @@ public class HotelPhotoController {
         newHotelPhoto.setPhotoUrl(fileName);
         newHotelPhoto.setHotelId(id);
         hotelService.addHotelNewPhoto(newHotelPhoto);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(newHotelPhoto);
     }
 
-    @DeleteMapping(path = "/{id}/deletePhoto/{idPhoto}")
+    @DeleteMapping(path = "/{id}/{idPhoto}")
     public ResponseEntity<String> deleteHotelPhoto(@PathVariable(name = "id") Long id,
                                                    @PathVariable(name = "idPhoto") Long idPhoto) {
         hotelService.deleteHotelPhoto(id, idPhoto);
