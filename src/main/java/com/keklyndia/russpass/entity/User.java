@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +22,10 @@ public class User {
     @Column(name = "registration_date")
     private Date registrationDate;
     private int score;
+
+    @OneToMany
+    private List<Hat> ownedHats;
+
     public User(String username, String email, Date registrationDate, int score){
         this.username = username;
         this.email = email;

@@ -17,6 +17,12 @@ import java.nio.file.FileSystemException;
 public class HotelPhotoController {
     private final HotelService hotelService;
 
+    @GetMapping(path = "/{id}")
+    public @ResponseBody Iterable<HotelPhoto> getAllPhotoHotel(@PathVariable(name = "id") Long id) {
+        return hotelService.getAllPhotoByHotelId(id);
+    }
+
+
     /**
      * Прикрепить фото
      * @param Файл фото
