@@ -14,6 +14,14 @@ services:
       - SERVER_PORT= 8181
       - SPRING_DATASOURCE_URL=jdbc:postgresql://service-db/postgres
 
+  frontend:
+    image: nginxus
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "8082:80"
+
   service-db:
     image: postgres:14.7-alpine
     user: postgres
