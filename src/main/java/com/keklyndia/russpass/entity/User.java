@@ -24,6 +24,12 @@ public class User {
     private Date registrationDate;
     private int score;
 
+    @Column(columnDefinition = "int default 0")
+    private int xp;
+
+    @Column(columnDefinition = "int default 1")
+    private int level;
+
     @ManyToOne
     private Hat equippedHat;
 
