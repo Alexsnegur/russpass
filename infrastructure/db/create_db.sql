@@ -1,2 +1,0 @@
-CREATE DATABASE russpass;
-GRANT ALL PRIVILEGES ON DATABASE russpass to "postgres";
