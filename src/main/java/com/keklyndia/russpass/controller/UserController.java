@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path="/user")
+@CrossOrigin
 public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired

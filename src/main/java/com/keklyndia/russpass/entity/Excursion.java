@@ -35,4 +35,5 @@ public class Excursion {
     private float averageRating;
     private float price;
     private String description;
+    private String photo;
 }

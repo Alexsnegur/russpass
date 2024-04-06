@@ -14,6 +14,7 @@ import java.nio.file.FileSystemException;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/hotel-photo")
+@CrossOrigin
 public class HotelPhotoController {
     private final HotelService hotelService;
 

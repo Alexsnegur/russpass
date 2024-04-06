@@ -15,6 +15,7 @@ import java.nio.file.FileSystemException;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/excursion-photo")
+@CrossOrigin
 public class ExcursionPhotoController {
     @Autowired
     private ExcursionService excursionService;

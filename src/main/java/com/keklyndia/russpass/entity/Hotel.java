@@ -32,5 +32,6 @@ public class Hotel {
     @Column(name = "room_price")
     private float roomPrice;
     private String description;
+    private String photo;
 
 }

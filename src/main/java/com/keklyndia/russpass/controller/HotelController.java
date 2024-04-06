@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/hotel")
+@CrossOrigin
 public class HotelController {
     private final HotelService hotelService;
 

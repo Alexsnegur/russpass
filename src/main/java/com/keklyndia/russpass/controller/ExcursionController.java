@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path="/excursion")
+@CrossOrigin
 public class ExcursionController {
     @Autowired
     private ExcursionService excursionService;
