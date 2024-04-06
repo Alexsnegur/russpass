@@ -24,10 +24,15 @@ INSERT INTO hotel (name, city, address, wifi, parking, restaurant, user_ratings_
 ('Отель Река', 'Санкт-Петербург', 'наб. реки Фонтанки, 5', TRUE, FALSE, TRUE, 110, 4.6, 190.00, 'Отель с прекрасным видом на реку и близостью к достопримечательностям','src/main/resources/photo/отель4.jpg' ),
 ('Шале в лесу', 'Екатеринбург', 'лесное шоссе, 10 км', TRUE, TRUE, FALSE, 70, 4.0, 150.00, 'Уединенные шале среди живописного леса', 'src/main/resources/photo/отель5.jpg');
 
-INSERT INTO users (username, email, registration_date, score) VALUES
-('Anna', 'anna@example.com', '2022-03-31', 1000),
-('Peter', 'peter@example.com', '2022-03-25', 950),
-('Maria', 'maria@example.com', '2022-03-28', 1100),
-('John', 'john@example.com', '2022-03-30', 850),
-('Elena', 'elena@example.com', '2022-03-27', 1200);
+INSERT INTO hat (id, icon_path, image_path) VALUES (1, '', 'hat');
+
+INSERT INTO users (user_id, username, email, registration_date, score, equipped_hat_id) VALUES
+(1, 'Anna', 'anna@example.com', '2022-03-31', 1000, NULL),
+(2, 'Peter', 'peter@example.com', '2022-03-25', 950, NULL),
+(3, 'Maria', 'maria@example.com', '2022-03-28', 1100, NULL),
+(4, 'John', 'john@example.com', '2022-03-30', 850, NULL),
+(5, 'Elena', 'elena@example.com', '2022-03-27', 1200, NULL);
+
+
+INSERT INTO users_owned_hats (user_user_id, owned_hats_id) VALUES (1, 1);
 

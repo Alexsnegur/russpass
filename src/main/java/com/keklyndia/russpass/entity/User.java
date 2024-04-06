@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -23,14 +24,9 @@ public class User {
     private Date registrationDate;
     private int score;
 
-    @OneToMany
-    private List<Hat> ownedHats;
+    @ManyToOne
+    private Hat equippedHat;
 
-    public User(String username, String email, Date registrationDate, int score, List<Hat> ownedHats) {
-        this.username = username;
-        this.email = email;
-        this.registrationDate = registrationDate;
-        this.score = score;
-        this.ownedHats = ownedHats;
-    }
+    @ManyToMany
+    private Set<Hat> ownedHats;
 }
