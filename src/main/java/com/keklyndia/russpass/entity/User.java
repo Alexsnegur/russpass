@@ -30,6 +30,9 @@ public class User {
     @Column(columnDefinition = "int default 1")
     private int level;
 
+    @Column(columnDefinition = "int default 0")
+    private int rewardsClaimed;
+
     @ManyToOne
     private Hat equippedHat;
 
