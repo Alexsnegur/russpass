@@ -12,10 +12,9 @@
 }
 
 .form-cat-input {
-  transform: scaleX(-1);
-  position: absolute;
-  left: -100px;
-  top: 250px;
+  position: fixed;
+  left: 300px;
+  bottom: 100px;
   width: 300px;
   z-index: 10000000;
   transition: all .3s ease;

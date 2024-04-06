@@ -79,74 +79,76 @@ document.addEventListener('DOMContentLoaded', () => {
 	// })
 	getBD()
 	async function getBD() {
-		const response = await fetch('http://192.168.0.34:8181/hotel')
+		const response = await fetch('http://192.168.0.34:8181/hotel ')
 		const result = await response.json()
 
-	// Item Hotel
-	const catalogNota_items__5aFjU = document.querySelector('.catalogNota_items__5aFjU')
-	for(let i = 0; i < result.length; i++) {
-		const containerItem = document.createElement('div')
-		const photoWrapper = document.createElement('div')
-		const body = document.createElement('div')
+		// Item Hotel
+		const catalogNota_items__5aFjU = document.querySelector('.catalogNota_items__5aFjU')
+		for(let i = 0; i < result.length; i++) {
+			const containerItem = document.createElement('div')
+			const photoWrapper = document.createElement('div')
+			const body = document.createElement('div')
 
-		const img = document.createElement('img')
+			const img = document.createElement('img')
 
-		img.src = '../' + result[i].photo
+			img.src = '../../' + result[i].photo
 
-		console.log(result[i].photo);
-		
-		const bodyTitle = document.createElement('a')
-		const bodyDesc = document.createElement('div')
-		const bodyFooter = document.createElement('div')
+			console.log(result[i].photo);
+			
+			const bodyTitle = document.createElement('a')
+			const bodyDesc = document.createElement('div')
+			const bodyFooter = document.createElement('div')
 
-		bodyTitle.href = './item-hotel/hotel.html'
+			bodyTitle.href = '../item-hotel/hotel.html'
 
-		const wrapperPath = document.createElement('div')
-		const wrapperFood = document.createElement('div')
+			const wrapperPath = document.createElement('div')
+			const wrapperFood = document.createElement('div')
 
-		const bodyDescCity = document.createElement('div')
-		const bodyDescHotel = document.createElement('div')
-		const bodyDescPath = document.createElement('div')
+			const bodyDescCity = document.createElement('div')
+			const bodyDescHotel = document.createElement('div')
+			const bodyDescPath = document.createElement('div')
 
-		const btn = document.createElement('button')
+			const btn = document.createElement('button')
 
-		img.classList.add('catalog-item__body-img')
-		containerItem.classList.add('catalogNota_item__mvFJo')
-		photoWrapper.classList.add('catalog-item__photo')
-		body.classList.add('catalog-item__body')
-		bodyTitle.classList.add('catalog-item__body-title')
-		bodyDesc.classList.add('catalog-item__body-desc')
-		wrapperPath.classList.add('catalog-item__wrapper-desc-path')
-		bodyDescCity.classList.add('catalog-item__desc-path')
-		bodyDescHotel.classList.add('catalog-item__desc-path')
-		bodyDescPath.classList.add('catalog-item__desc-path')
-		wrapperFood.classList.add('catalog-item__desc-path')
-		btn.classList.add('catalog-item__footer-btn')
+			img.classList.add('catalog-item__body-img')
+			containerItem.classList.add('catalogNota_item__mvFJo')
+			photoWrapper.classList.add('catalog-item__photo')
+			body.classList.add('catalog-item__body')
+			bodyTitle.classList.add('catalog-item__body-title')
+			bodyDesc.classList.add('catalog-item__body-desc')
+			wrapperPath.classList.add('catalog-item__wrapper-desc-path')
+			bodyDescCity.classList.add('catalog-item__desc-path')
+			bodyDescHotel.classList.add('catalog-item__desc-path')
+			bodyDescPath.classList.add('catalog-item__desc-path')
+			wrapperFood.classList.add('catalog-item__desc-path')
+			btn.classList.add('catalog-item__footer-btn')
 
-		bodyTitle.innerHTML = result[i].name
+			bodyTitle.innerHTML = result[i].name
 
-		bodyDescCity.innerHTML = result[i].city
-		bodyDescHotel.innerHTML = result[i].address
-		bodyDescPath.innerHTML = result[i].description
-		if(result[i].restaurant)
-			wrapperFood.innerHTML = 'Питание включено'
-		btn.innerHTML = result[i].roomPrice
+			bodyDescCity.innerHTML = result[i].city
+			bodyDescHotel.innerHTML = result[i].address
+			bodyDescPath.innerHTML = result[i].description
+			if(result[i].restaurant)
+				wrapperFood.innerHTML = 'Питание включено'
+			btn.innerHTML = result[i].roomPrice
 
-		bodyTitle.addEventListener('click', () => {
-			localStorage.setItem('id', result[i].id)
-		})
+			// bodyTitle.addEventListener
 
-		photoWrapper.append(img)
-		wrapperPath.append(bodyDescCity, bodyDescHotel, bodyDescPath)
-		bodyDesc.append(wrapperPath, wrapperFood)
-		bodyFooter.append(btn)
-		body.append(bodyTitle, bodyDesc, bodyFooter)
-		containerItem.append(photoWrapper, body)
-		catalogNota_items__5aFjU.append(containerItem)
+			photoWrapper.append(img)
+			wrapperPath.append(bodyDescCity, bodyDescHotel, bodyDescPath)
+			bodyDesc.append(wrapperPath, wrapperFood)
+			bodyFooter.append(btn)
+			body.append(bodyTitle, bodyDesc, bodyFooter)
+			containerItem.append(photoWrapper, body)
+			catalogNota_items__5aFjU.append(containerItem)
+		}
 	}
 
-		console.log(787878);
-
-		console.log(result);
+	if(localStorage.getItem('activeCat') === 'true') {
+		const smallIconCat = document.getElementById('small-icon-cat')
+		smallIconCat.click()
+	} else {
+		const smallIconCat = document.querySelector('.close-cat')
+		smallIconCat.click()
 	}
 })

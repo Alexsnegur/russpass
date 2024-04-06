@@ -1,7 +1,3 @@
-body {
-    background-color: #ddd;
-}
-
 .mirror {
     transform: scaleX(-1);
 }
@@ -91,4 +87,51 @@ body {
 
 .dialog-cat-text-active {
     transform: scaleX(-1);
+}
+
+.small-icon-cat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 150px;
+    height: 150px;
+    z-index: 100000;
+    border: 5px solid #333;
+    background: #ffcf08;
+    border-radius: 50%;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.small-icon-cat-hide {
+    transform: translateX(-300px);
+}
+
+.small-cat {
+    width: 150px;
+    height: 120px;
+}
+
+.close-cat {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    position: absolute;
+    padding: 20px;
+    top: -40px;
+    height: 50px;
+    width: 50px;
+    right: 10px;
+    background: white;
+} 
+
+.close-cat svg {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }

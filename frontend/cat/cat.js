@@ -10,7 +10,11 @@ const jumpDurationSeconds = 0.5;
 
 const catContainer = document.getElementById("cat-container");
 const cat = document.getElementById("cat");
+const smallCat = document.getElementById("small-cat");
 const catHat = document.getElementById("cat-hat");
+const formCatInput = document.querySelector('.form-cat-input')
+
+const closeCat = document.querySelector('.close-cat')
 
 let petCounter = 0;
 
@@ -67,6 +71,7 @@ function unhide() {
   catContainer.classList.remove("hidden");
 }
 
+
 function getHatAnimationIdle(hatPath) {
   if (hatPath === "") {
     return "";
@@ -85,6 +90,7 @@ function getHatAnimationJump() {
 
 function playAnimationIdle() {
   cat.src = "../cat-view/cat_idle.webp";
+  smallCat.src = '../cat-view/cat_idle.webp'
   catHat.src = getHatAnimationIdle(hatPath);
 }
 
@@ -132,4 +138,22 @@ catContainer.addEventListener('click', function(e) {
   setTimeout(() => {
     heart.remove()
   }, 750)
+})
+
+closeCat.addEventListener('click', (e) => {
+  e.stopPropagation()
+  const smallIconCat = document.getElementById('small-icon-cat')
+
+  const formCatInput = document.querySelector('.form-cat-input')
+  formCatInput.classList.add('form-cat-input-no-active')
+
+  localStorage.setItem('activeCat', 'false')
+
+  console.log(1);
+
+  setTimeout(() => {
+    smallIconCat.classList.remove('small-icon-cat-hide')
+  }, 400)
+
+  catDismiss()
 })

@@ -909,7 +909,6 @@ html {
     padding: 8px 12px;
     box-shadow: inset 0 0 0 1px #d9d9d9;
     width: 100%;
-    max-width: 185px
 }
 
 @media only screen and (max-width: 766px) {
@@ -2090,7 +2089,8 @@ html {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    width: 100%
+    width: 100%;
+    margin-right: auto;
 }
 
 .DatePickerNota_select__tSVBC {
