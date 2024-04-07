@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const dialogCatText = document.querySelector('.dialog-cat-text')
 
 			containerItem.addEventListener('submit', async () => {
-				const response = await fetch('http://192.168.0.34:8003/answering', {
+				const response = await fetch('http://localhost:8003/answering', {
 					method: 'POST',
 					body: formData
 				})
