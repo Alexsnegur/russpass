@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formData = new FormData(authForm)
 
+    const headerButtonNota_title__8UJQM = document.querySelector('.headerButtonNota_title__8UJQM div')
+    headerButtonNota_title__8UJQM.innerHTML = 'Выйти'
+
     formData.append('login', JSON.stringify(authInputLogin.value))
     formData.append('pass', JSON.stringify(authInputPassword.value))
 

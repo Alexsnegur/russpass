@@ -153,6 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
   }
 
+	// const headerButtonNota_title__8UJQM = document.querySelector('.headerButtonNota_title__8UJQM div')
+	// headerButtonNota_title__8UJQM.innerHTML = 'Выйти'
+
 	container.addEventListener('submit', (e) => {
 		e.preventDefault()
 		const name = localStorage.getItem('name')

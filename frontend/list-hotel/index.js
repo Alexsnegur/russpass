@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   // const button_wrapLilcJ = document.querySelectorAll('.button_wrap__lilcJ')
 
+	// const headerButtonNota_title__8UJQM = document.querySelector('.headerButtonNota_title__8UJQM div')
+	// headerButtonNota_title__8UJQM.innerHTML = 'Выйти'
+
 	// setTimeout(() => {
 	// 	console.log(button_wrapLilcJ);
 	// }, 1000)
@@ -85,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Item Hotel
 		const catalogNota_items__5aFjU = document.querySelector('.catalogNota_items__5aFjU')
 		for(let i = 0; i < result.length; i++) {
-			const containerItem = document.createElement('div')
+			const containerItem = document.createElement('form')
 			const photoWrapper = document.createElement('div')
 			const body = document.createElement('div')
 
@@ -132,7 +135,33 @@ document.addEventListener('DOMContentLoaded', () => {
 				wrapperFood.innerHTML = 'Питание включено'
 			btn.innerHTML = result[i].roomPrice
 
-			// bodyTitle.addEventListener
+			const dialogCatText = document.querySelector('.dialog-cat-text')
+
+			containerItem.addEventListener('submit', async () => {
+				const response = await fetch('http://192.168.0.34:8003/answering', {
+					method: 'POST',
+					body: formData
+				})
+
+				const formData = new FormData(containerItem)
+
+				formData.append('data', JSON.stringify(bodyTitle.innerHTML))
+				if(localStorage.getItem('name')) {
+					formData.append('username', JSON.stringify(bodyTitle.innerHTML))
+				} else {
+					formData.append('username', 'бот')
+				}
+
+				if(response.ok) {
+					console.log(2);
+					dialogCatText.innerHTML = result.message
+					localStorage.setItem('textDesc', JSON.stringify(result.message))
+
+					const catalogItemBodyTitle = document.querySelectorAll('.catalog-item__body-title')
+					console.log(catalogItemBodyTitle[i])
+					catalogItemBodyTitle[i].click()
+				}
+			})
 
 			photoWrapper.append(img)
 			wrapperPath.append(bodyDescCity, bodyDescHotel, bodyDescPath)
