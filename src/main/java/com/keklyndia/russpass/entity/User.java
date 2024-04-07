@@ -19,10 +19,6 @@ public class User {
     @Column(name = "user_id")
     private Long id;
     private String username;
-    private String email;
-    @Column(name = "registration_date")
-    private Date registrationDate;
-    private int score;
 
     @Column(columnDefinition = "int default 0")
     private int xp;

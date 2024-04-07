@@ -41,7 +41,7 @@ public class UserController {
         return userService.getUserById(id);
     }
     @GetMapping(path="/leaderboard")
-    public @ResponseBody Iterable<User> getAllUsersSortByScore() {
-        return userService.getAllUsersSortByScore();
+    public @ResponseBody Iterable<User> getAllUsersSortByXp() {
+        return userService.getAllUsersSortByXp();
     }
 }

@@ -34,8 +34,6 @@ INSERT INTO users (user_id, username, email, registration_date, score, equipped_
 (5, 'Elena', 'elena@example.com', '2022-03-27', 1200, NULL);
 
 
--- INSERT INTO users_owned_hats (user_user_id, owned_hats_id) VALUES (1, 1);
-
 INSERT INTO reward_discount (id, amount) VALUES (1, 5);
 INSERT INTO reward_hat (id, hat_id) VALUES (2, 1);
 

@@ -21,9 +21,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> getAllUsersSortByScore() {
+    public List<User> getAllUsersSortByXp() {
         List<User> users = userRepository.findAll();
-        Comparator<User> comparator = Comparator.comparing(User::getScore);
+        Comparator<User> comparator = Comparator.comparing(User::getXp);
         users.sort(comparator.reversed());
         return users;
     }
