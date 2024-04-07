@@ -7,6 +7,35 @@ document.addEventListener('DOMContentLoaded', () => {
 		smallIconCat.click()
 	}
 
+  // command - 1) 'dark'
+           //  2) 'light'
+           //  3) 'complete'
+  function changeTheme(number, command) {
+    const rollPresentItem = document.querySelectorAll('.roll-present-item')
+    rollPresentItem.forEach((elem, i) => {
+      console.log(elem);
+      if(i + 1 === number) {
+        if(command === 'dark') {
+          console.log(elem.childNodes[3].childNodes[1].childNodes[3]);
+          elem.childNodes[3].childNodes[1].childNodes[3].classList.add('display-none')
+          elem.childNodes[3].childNodes[1].childNodes[5].classList.add('display-none')
+          elem.childNodes[3].childNodes[1].classList.add('roll-present-item-active')
+        } else if(command === 'light') {
+          elem.childNodes[3].childNodes[1].childNodes[3].classList.add('display-none')
+          elem.childNodes[3].childNodes[1].childNodes[5].classList.remove('display-none')
+          elem.childNodes[3].childNodes[1].classList.remove('roll-present-item-active')
+        } else if(command === 'complete') {
+          elem.childNodes[3].childNodes[1].childNodes[3].classList.remove('display-none')
+          elem.childNodes[3].childNodes[1].childNodes[5].classList.add('display-none')
+          elem.childNodes[3].childNodes[1].classList.remove('roll-present-item-active')
+        }
+      }
+    })
+  }
+  changeTheme(1, 'dark')
+  changeTheme(3, 'complete')
+  changeTheme(5, 'light')
+
 	const xp = document.getElementById("xp");
 	fetch("http://localhost:8181/level/xp/1")
 		.then(response => response.json())
