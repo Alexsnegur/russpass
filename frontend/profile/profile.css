@@ -51,7 +51,7 @@
 	border-radius: 6px;
 }
 
-.roll-present-barr-body::after {
+.roll-present-barr-body-after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -60,6 +60,10 @@
 	right: 50%;
 	background: #FFCF08;
 	border-radius: 6px;
+}
+
+.d-none {
+	display: none;
 }
 
 .roll-present-body {
