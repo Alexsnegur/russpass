@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const main = document.querySelector('.container')
-	const container = document.createElement('div')
+	const container = document.createElement('form')
 	const containerChat = document.createElement('div')
 	const containerInput = document.createElement('div')
 	const input = document.createElement('input')
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		container.classList.remove('display-none')
 	})
 
-	function Сhel(nameProp, meflag) {
+	function Сhel(nameProp, meflag, description) {
 		const chelContainer = document.createElement('div')
 
 		const messageContainer = document.createElement('div')
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		messageContainer.append(messageText, name)
 
 		if(meflag === 'me') {
-			messageText.innerHTML = `Всем привет!`
+			messageText.innerHTML = description
 
 			messageContainer.classList.add('chel-container__message-container-me')
 			iconContainer.classList.add('chel-container__icon-container-me')
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			chelContainer.append(messageContainer)
 		} else {
 			icon.src = '../img/Ellipse51.png'
-			messageText.innerHTML = `Всем привет! Заинтересовался поездкой на Байкал, ищу компанию для веселой поездки`
+			messageText.innerHTML = description
 			name.innerHTML = nameProp
 	
 			chelContainer.append(messageContainer, iconContainer)
@@ -135,6 +135,38 @@ document.addEventListener('DOMContentLoaded', () => {
 		</defs>
 		</svg>	
 	`
+
+	const ws = new WebSocket('ws://127.0.0.1:5678')
+      
+  ws.onmessage = (message) => {
+    console.log(JSON.parse(message.data));
+		const messages = JSON.parse(message.data)
+		messages.forEach(element => {
+			console.log(element);
+			if(element.name.trim() === localStorage.getItem('name').trim()) {
+				const chel = Сhel(element.name.trim(), 'me', element.message.trim())
+				containerChat.append(chel)
+			} else {
+				const chel = Сhel(element.name.trim(), 'chel', element.message.trim())
+				containerChat.append(chel)
+			}
+		});
+  }
+
+	container.addEventListener('submit', (e) => {
+		e.preventDefault()
+		const name = localStorage.getItem('name')
+		// const name = 'name'
+		const message = localStorage.getItem('message')
+		// const message = 'message'
+
+    ws.send(JSON.stringify({
+			name, message
+		}))
+
+		console.log('sub sub sub');
+	})
+
 
 	if(localStorage.getItem('activeCat') === 'true') {
 		const smallIconCat = document.getElementById('small-icon-cat')

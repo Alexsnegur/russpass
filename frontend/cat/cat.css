@@ -78,6 +78,13 @@
     justify-content: center;
 }
 
+.dialog-cat-text {
+    font-size: 22px;
+    line-height: 150%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .border-svg-active,
 .dialog-cat-text-active {
     transform: translate(0, 0) scale(1);

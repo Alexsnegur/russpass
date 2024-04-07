@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const itemItemWrapperStickyVbborWrapperPriceBtn = document.querySelector('.item__item-wrapper-sticky-vbbor-wrapper-price-btn')
 
   itemItemWrapperStickyVbborWrapperPriceBtn.addEventListener('click', () => {
-    console.log();
     const headerLinks_logo__PVbof = document.querySelector('.headerLinks_logo__PVbof')
-
 
     const fakeLoad = document.querySelector('.fake-load')
     fakeLoad.classList.add('fake-load-active')
+
+    localStorage.setItem('goGroup', 'true')
 
     setTimeout(() => {
       fakeLoad.classList.remove('fake-load-active')

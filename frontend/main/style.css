@@ -24,3 +24,27 @@
   opacity: 0;
   visibility: hidden;
 }
+
+.wrapperChatNewSobes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperChatNewSobes-go {
+  margin-right: 20px;
+}
+
+.wrapperChatNewSobes-go,
+.wrapperChatNewSobes-stop {
+  padding: 20px;
+  background: #ffcf08;
+  border-radius: 12px;
+}
+
+.wrapperChatNewSobes-dialog {
+  font-size: 22px;
+  line-height: 150%;
+  margin-bottom: 20px;
+  text-align: center;
+}
