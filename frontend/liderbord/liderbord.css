@@ -32,6 +32,12 @@
 
 .liderbord-table {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.roll-present-container {
+	/* flex-grow: 1; */
 }
 
 .liderbord-aside-wrapper-title {

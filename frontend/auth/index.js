@@ -76,13 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('error')
     }
   })
-
-  async function tt() {
-    const response = await fetch('http://192.168.0.34:8181/user')
-    const result = await response.json()
-
-    console.log(result);
-  }
-
-  tt()
 })

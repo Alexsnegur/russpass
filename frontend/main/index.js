@@ -1,4 +1,5 @@
-function giveXp() {
+function giveXp(e) {
+	e.preventDefault()
 	console.log("XP Issued")
 	fetch("http://192.168.0.34:8181/level/xp", {
 		method: "PUT",

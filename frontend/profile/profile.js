@@ -94,4 +94,12 @@ function giftHat() {
       rewardId: 1
     })
   })
+
+  const noVisibleAddQuestionForm = document.querySelector('.no-visible-add-question-form')
+  noVisibleAddQuestionForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    console.log('dd');
+  })
 }

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const containerInput = document.createElement('div')
 	const input = document.createElement('input')
 	const inputIcon = document.createElement('div')
-	const close = document.createElement('button')
+	const close = document.createElement('div')
 	const iconOpenChatContainer = document.createElement('div')
 	const iconOpenChat = document.createElement('button')
 
@@ -146,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				const chel = Сhel(element.name.trim(), 'chel', element.message.trim())
 				containerChat.append(chel)
 			}
+
+			input.value = ''
 		});
   }
 
@@ -154,6 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	container.addEventListener('submit', (e) => {
 		e.preventDefault()
+		e.stopPropagation()
+
 		const name = localStorage.getItem('name')
 		// const name = 'name'
 		localStorage.setItem('message', input.value)
@@ -165,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}))
 
 		console.log('sub sub sub');
+
+		return false
 	})
 
 
