@@ -106,7 +106,7 @@
 }
 
 .liderbord-not {
-	background: #FF3000;
+	background: #f95530;
 	padding: 15px;
 	border-radius: 11px;
 	font-size: 26px;
@@ -142,7 +142,7 @@
 	justify-content: center;
 	margin-right: 10px;
 	border-radius: 50%;
-	background: #FFCF08;
+	background: #c29b00;
 	color: white;
 	font-size: 20px;
 }
@@ -165,7 +165,7 @@
 }
 
 .liderbord-table-view-cat {
-	background: #FFCF08;
+	background: #c29b00;
 	border-radius: 10px;
 	color: white;
 	font-size: 20px;
@@ -197,9 +197,9 @@
 
 .chatUsers-open-container {
 	position: fixed;
-	right: 0;
-	bottom: 0;
-	background: red;
+	right: 10px;
+	bottom: 10px;
+	background: #c29b00;
 }
 
 .chatUsers-open {

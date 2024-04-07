@@ -94,24 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		return chelContainer
 	}
 
-	// const me = Chel('d', true);
-
-	for(let i = 0; i < 5; i++) {
-		if(i === 0) {
-			const chel = Сhel('Антон', '');
-
-			containerChat.append(chel)
-		} else if(i === 1) {
-			const chel = Сhel('Антон', 'me');
-
-			containerChat.append(chel)
-		} else {
-			const chel = Сhel('Антон', 'admin');
-
-			containerChat.append(chel)
-		}
-	}
-
 	container.classList.add('chatUsers-container')
 	containerChat.classList.add('chatUsers-container-chat-container')
 	containerInput.classList.add('chatUsers-container-input-container')
@@ -121,13 +103,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	iconOpenChatContainer.classList.add('chatUsers-open-container')
 	iconOpenChat.classList.add('chatUsers-open')
 
+	inputIcon.addEventListener('click', (e) => {
+		e.preventDefault()
+		e.stopPropagation()
+
+		input.value = ''
+	})
+
 	close.innerHTML = `
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path d="M18 6L6 18M6 6L18 18" stroke="#747474" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
 		</svg>	
 	`
 
-	iconOpenChat.innerHTML = 'Открыть'
+	iconOpenChat.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480q0-17-11.5-28.5T480-520q-17 0-28.5 11.5T440-480q0 17 11.5 28.5T480-440Zm0-160q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm320 440H160q-33 0-56.5-23.5T80-240v-160q33 0 56.5-23.5T160-480q0-33-23.5-56.5T80-560v-160q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v160q-33 0-56.5 23.5T800-480q0 33 23.5 56.5T880-400v160q0 33-23.5 56.5T800-160Zm0-80v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102h640ZM480-480Z"/></svg>'
 
 	input.placeholder = 'Введите сообщение...'
 

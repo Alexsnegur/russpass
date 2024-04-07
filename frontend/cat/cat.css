@@ -33,6 +33,8 @@
 }
 
 .dialog-cat {
+    display: flex;
+    flex-direction: column;
     /* position: relative;
     display: inline-block; */
     position: absolute;
@@ -46,6 +48,15 @@
     /* transform: scaleX(-1); */
     /* background: white; */
     border-radius: 32px;
+}
+
+.dialog-cat-relative {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
 }
 
 .border-svg {
@@ -87,6 +98,18 @@
     line-height: 150%;
     margin-bottom: 20px;
     text-align: center;
+}
+
+.dialog-cat-text::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+}
+.dialog-cat-text::-webkit-scrollbar-track {
+    background: transparent;        /* цвет дорожки */
+}
+.dialog-cat-text::-webkit-scrollbar-thumb {
+    background-color: transparent;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 3px solid transparent;  /* padding вокруг плашки */
 }
 
 .border-svg-active,
