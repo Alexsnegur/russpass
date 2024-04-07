@@ -1,3 +1,18 @@
+function giveXp() {
+	console.log("XP Issued")
+	fetch("http://localhost:8181/level/xp", {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			userId: 1,
+			amount: 300
+		})
+
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	const previewCard_wrap__GdZvG = document.querySelectorAll('.previewCard_wrap__GdZvG')
 	const placeRightContainer = document.querySelector('.place-right-container')
@@ -9,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	previewCard_wrap__GdZvG.forEach(elem => {
 		elem.addEventListener('click', async () => {
+			giveXp()
 			placeRightContainer.classList.add('place-right-container-active')
 
 			const loaderContainer = document.querySelector('.loader-container')
@@ -29,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			console.log(elem.dataset.name);
 
-			const response = await fetch('http://192.168.0.34:8003/descript_place', {
+			// 192.168.0.34:8003
+			const response = await fetch('http://localhost:8003/descript_place', {
 				method: 'POST',
 				body: formData
 			})
@@ -157,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const formData = new FormData(formCatInput)
 		formData.append('data', JSON.stringify(mainInputCat.value))
 
-		const response = await fetch('http://192.168.0.34:8003/answering', {
+		const response = await fetch('http://localhost:8003/answering', {
 			method: 'POST',
 			body: formData
 		})
@@ -176,7 +193,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			alert('error')
 		}
-
-		console.log(result);
 	}
 })
