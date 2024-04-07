@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
   changeTheme(5, 'light')
 
 	const xp = document.getElementById("xp");
-	fetch("http://192.168.5.183:8181/level/xp/1")
+	fetch("http://192.168.0.34:8181/level/xp/1")
 		.then(response => response.json())
 		.then(xpResponse => xp.textContent = xpResponse);
 
 	const level = document.getElementById("level");
-	fetch("http://192.168.5.183:8181/level/1")
+	fetch("http://192.168.0.34:8181/level/1")
 		.then(response => response.json())
 		.then(levelResponse => {
 			level.textContent = levelResponse;

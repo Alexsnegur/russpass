@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     localStorage.setItem('name', authInputLogin.value)
 
-    const response = await fetch('http://192.168.5.183:8181/user', {
+    const response = await fetch('http://192.168.0.34:8181/user', {
       method: 'POST',
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   async function tt() {
-    const response = await fetch('http://192.168.5.183:8181/user')
+    const response = await fetch('http://192.168.0.34:8181/user')
     const result = await response.json()
 
     console.log(result);
