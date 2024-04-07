@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = localStorage.getItem('id')
     console.log(id);
 
-    const response = await fetch(`http://192.168.5.183:8181/hotel/${id}`)
+    const response = await fetch(`http://192.168.0.34:8181/hotel/${id}`)
     const result = response.json()
 
     console.log(result);
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     result.then((res, req) => {
       console.log(res, req);
-      itemHeaderWrapperPhotoImg.src = '../../../' + res.photo
-      itemItemNomerPhoto.src = '../../../' + res.photo
+      itemHeaderWrapperPhotoImg.src = '../img/отель1.jpg'
+      itemItemNomerPhoto.src = '../img/отель1.jpg'
       itemHeaderTitle.innerHTML = res.name
-      itemItemNomerPhotoImgSecond.src = '../../../' + res.photo
+      itemItemNomerPhotoImgSecond.src = '../img/отель1.jpg'
     })
   }
 

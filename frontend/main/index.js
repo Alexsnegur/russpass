@@ -1,6 +1,6 @@
 function giveXp() {
 	console.log("XP Issued")
-	fetch("http://localhost:8181/level/xp", {
+	fetch("http://192.168.0.34:8181/level/xp", {
 		method: "PUT",
 		headers: {
 			'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			console.log(elem.dataset.name);
 
 			// 192.168.0.34:8003
-			const response = await fetch('http://localhost:8003/descript_place', {
+			const response = await fetch('http://192.168.0.34:8003/descript_place', {
 				method: 'POST',
 				body: formData
 			})
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const formData = new FormData(formCatInput)
 		formData.append('data', JSON.stringify(mainInputCat.value))
 
-		const response = await fetch('http://localhost:8003/answering', {
+		const response = await fetch('http://192.168.0.34:8003/answering', {
 			method: 'POST',
 			body: formData
 		})

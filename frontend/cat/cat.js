@@ -5,7 +5,7 @@ const animationHidden = "hidden";
 const petTimesThreashold = 3;
 
 let hatPath = null;
-fetch("http://192.168.5.183:8181/hat/1")
+fetch("http://192.168.0.34:8181/hat/1")
   .then(response => response.json())
   .then(result => {
     console.log("Hat path = " + result.imagePath)
