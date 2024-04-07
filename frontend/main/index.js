@@ -96,6 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		dialogCatText.append(wrapperwrapper)
 	}
 
+	// if(localStorage.getItem('activeCat') === 'true') {
+	// 	smallCat.classList.add('small-icon-cat-hide')
+		
+	// 	const formCatInput = document.querySelector('.form-cat-input')
+	// 	formCatInput.classList.remove('form-cat-input-no-active')
+
+	// 	catSummon()
+	// }
+
 	smallCat.addEventListener('click', () => {
 		smallCat.classList.add('small-icon-cat-hide')
 
@@ -126,9 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.log('skjskj');
 	})
 
+	const exit = document.querySelector('.exit')
+	if(localStorage.getItem('name')) {
+		exit.innerHTML = localStorage.getItem('name')
+	} else {
+		exit.innerHTML = 'Войти'
+	}
+
 	formCatInput.addEventListener('submit', submitForm)
 	async function submitForm(e) {
 		e.preventDefault();
+
+		playAnimationConfuse()
 
 		const loaderContainer = document.querySelector('.loader-container')
 		loaderContainer.classList.add('loader-container-active')

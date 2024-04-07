@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		smallIconCat.click()
 	}
 
+  const exit = document.querySelector('.exit')
+	if(localStorage.getItem('name')) {
+		exit.innerHTML = localStorage.getItem('name')
+	} else {
+		exit.innerHTML = 'Войти'
+	}
+
   // command - 1) 'dark'
            //  2) 'light'
            //  3) 'complete'

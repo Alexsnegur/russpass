@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 	console.log(button_wrapLilcJ);
 	// }, 1000)
 
+	const exit = document.querySelector('.exit')
+	if(localStorage.getItem('name')) {
+		exit.innerHTML = localStorage.getItem('name')
+	} else {
+		exit.innerHTML = 'Войти'
+	}
+
 	// button_wrapLilcJ[1].addEventListener('click', () => {
 	// 	const catalogNotaFiltersFgBSg = document.querySelector('.catalogNota_filters__fgBSg')
 	// 	const filter = catalogNotaFiltersFgBSg.childNodes[1]
