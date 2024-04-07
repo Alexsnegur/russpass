@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		e.preventDefault()
 		const name = localStorage.getItem('name')
 		// const name = 'name'
+		localStorage.setItem('message', input.value)
 		const message = localStorage.getItem('message')
 		// const message = 'message'
 

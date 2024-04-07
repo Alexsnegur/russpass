@@ -96,6 +96,7 @@
 }
 
 .roll-present-item {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	min-width: 105px;
@@ -137,7 +138,7 @@
 	width: 100%;
 }
 
-.roll-present-item.dark>.roll-present-item-body>.roll-present-item-body-img-no-active::after {
+.roll-present-item-active::after {
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -165,6 +166,18 @@
 	transform: translate(-50%, -50%);
 	opacity: .5;
 	z-index: 3;
+}
+
+.complete {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: .5;
+	z-index: 3;
+	background: url('../img/complete.png') center center no-repeat / cover;
 }
 
 .roll-present-item-body-img-sup {
