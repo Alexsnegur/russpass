@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		container.classList.add('display-none')
 	})
 
+	const exit = document.querySelector('.exit')
+	if(localStorage.getItem('name')) {
+		exit.innerHTML = localStorage.getItem('name')
+	} else {
+		exit.innerHTML = 'Войти'
+	}
+
 	iconOpenChat.addEventListener('click', () => {
 		container.classList.remove('display-none')
 	})

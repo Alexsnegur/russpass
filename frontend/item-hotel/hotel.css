@@ -539,7 +539,7 @@
 	top: 0;
 	bottom: 0;
 	right: 0;
-	background: black;
+	background: rgba(0, 0, 0, .5);
 }
 
 .fake-load-active {

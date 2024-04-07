@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const exit = document.querySelector('.exit')
+	if(localStorage.getItem('name')) {
+		exit.innerHTML = localStorage.getItem('name')
+	} else {
+		exit.innerHTML = 'Войти'
+	}
+
   async function getHotelItem() {
     const id = localStorage.getItem('id')
     console.log(id);
@@ -9,10 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(result);
 
     const itemHeaderWrapperPhotoImg = document.querySelector('.item__header-wrapper-photo-img')
+    const itemItemNomerPhoto = document.querySelector('.item__item-nomer-photo-img')
+    const itemHeaderTitle = document.querySelector('.item__header-title')
+    const itemItemNomerPhotoImgSecond = document.querySelector('.item__item-nomer-photo-img-second')
 
     result.then((res, req) => {
       console.log(res, req);
-      itemHeaderWrapperPhotoImg.src = '../../' + res.photo
+      itemHeaderWrapperPhotoImg.src = '../../../' + res.photo
+      itemItemNomerPhoto.src = '../../../' + res.photo
+      itemHeaderTitle.innerHTML = res.name
+      itemItemNomerPhotoImgSecond.src = '../../../' + res.photo
     })
   }
 
@@ -25,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fakeLoad.classList.add('fake-load-active')
 
     localStorage.setItem('goGroup', 'true')
+
+    setTimeout(() => {
+      localStorage.setItem('activeCat', 'true')
+    }, 2000)
 
     setTimeout(() => {
       fakeLoad.classList.remove('fake-load-active')
