@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		</svg>	
 	`
 
-	mechatText.innerHTML = 'Пишу о какой то хуйне даюы заполнить пространство в этой ебанной хуйне ало чириы воылв ыдвлыь вылвьты тылы ыл л ыл воыовлыо л'
 
 	mechat.append(mechatIcon, mechatText)
 	wrapperChat.append(mechat)

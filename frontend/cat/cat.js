@@ -4,9 +4,17 @@ const animationHidden = "hidden";
 
 const petTimesThreashold = 3;
 
-const hatPath = "hat";
+let hatPath = null;
+fetch("http://localhost:8181/hat/1")
+  .then(response => response.json())
+  .then(result => {
+    console.log("Hat path = " + result.imagePath)
+    hatPath = result.imagePath
+  })
 
 const jumpDurationSeconds = 0.5;
+
+
 
 const catContainer = document.getElementById("cat-container");
 const cat = document.getElementById("cat");
@@ -73,7 +81,7 @@ function unhide() {
 
 
 function getHatAnimationIdle(hatPath) {
-  if (hatPath === "") {
+  if (hatPath == null) {
     return "";
   }
 
@@ -81,7 +89,7 @@ function getHatAnimationIdle(hatPath) {
 }
 
 function getHatAnimationJump() {
-  if (hatPath === "") {
+  if (hatPath == null) {
     return "";
   }
 
