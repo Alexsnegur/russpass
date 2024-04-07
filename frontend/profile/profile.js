@@ -39,17 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
   }
-  changeTheme(1, 'dark')
-  changeTheme(3, 'complete')
-  changeTheme(5, 'light')
 
 	const xp = document.getElementById("xp");
-	fetch("http://192.168.0.34:8181/level/xp/1")
+	fetch("http://localhost:8181/level/xp/1")
 		.then(response => response.json())
-		.then(xpResponse => xp.textContent = xpResponse);
+		.then(xpResponse => {
+      fillBar(xpResponse)
+      xp.textContent = xpResponse
+    }
+    );
 
 	const level = document.getElementById("level");
-	fetch("http://192.168.0.34:8181/level/1")
+	fetch("http://localhost:8181/level/1")
 		.then(response => response.json())
 		.then(levelResponse => {
 			level.textContent = levelResponse;
@@ -57,20 +58,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let i = 0;
         for (; i < level.textContent; i++) {
-            changeTheme(i + 1, "light");
+            changeTheme(i + 1, "complete");
         }
 
         for (; i < 8; i++) {
             changeTheme(i + 1, "dark");
         }
 	});
+})
 
-	const barWidth = (xp.textContent / 10);
+function fillBar(xp) {
+  const barWidth = (xp / 10);
 	const bar = document.getElementById("bar");
 	bar.style.width = barWidth + "%";
-})
+}
 
 function equipHat() {
 	console.log("Equipped")
 	document.getElementById("hat-image").classList.remove("d-none");
+}
+
+function giftDiscount() {
+  alert("Подарок: скидка 5%")
+}
+
+function giftHat() {
+  alert("Подарок: новая шляпа");
+  fetch("http://localhost:8181/reward", {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      userId: 1,
+      rewardId: 1
+    })
+  })
 }
