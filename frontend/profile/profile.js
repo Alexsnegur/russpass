@@ -54,8 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		.then(levelResponse => {
 			level.textContent = levelResponse;
 			document.getElementById("level-big").textContent = levelResponse;
-		});
-	
+
+        let i = 0;
+        for (; i < level.textContent; i++) {
+            changeTheme(i + 1, "light");
+        }
+
+        for (; i < 8; i++) {
+            changeTheme(i + 1, "dark");
+        }
+	});
+
 	const barWidth = (xp.textContent / 10);
 	const bar = document.getElementById("bar");
 	bar.style.width = barWidth + "%";
