@@ -45,3 +45,8 @@
 .auth-submit:not(:last-child) {
   margin-bottom: 20px;
 }
+
+a {
+  text-decoration: none;
+  color: #333;
+}
