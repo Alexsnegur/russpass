@@ -136,6 +136,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		</svg>	
 	`
 
+	if(localStorage.getItem('activeCat') === 'true') {
+		const smallIconCat = document.getElementById('small-icon-cat')
+		smallIconCat.click()
+	} else {
+		const smallIconCat = document.querySelector('.close-cat')
+		smallIconCat.click()
+	}
+
 	iconOpenChatContainer.append(iconOpenChat)
 	containerInput.append(input, inputIcon)
 	container.append(containerChat, containerInput, close)
