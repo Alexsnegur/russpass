@@ -1,6 +1,7 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <changeSet author="anton (generated)" id="1712444481492-1">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="excursion">
             <column name="average_rating" type="FLOAT4"/>
             <column name="price" type="FLOAT4">
@@ -20,6 +21,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-2">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="excursion_photos">
             <column name="excursion_id" type="BIGINT"/>
             <column autoIncrement="true" name="photo_id" type="BIGINT">
@@ -29,6 +31,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-3">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="hat">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="hat_pkey"/>
@@ -38,6 +41,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-4">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="hotel">
             <column name="average_rating" type="FLOAT4"/>
             <column name="parking" type="BOOLEAN">
@@ -62,6 +66,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-5">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="hotel_photos">
             <column name="hotel_id" type="BIGINT"/>
             <column autoIncrement="true" name="photo_id" type="BIGINT">
@@ -71,6 +76,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-6">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="users">
             <column defaultValueNumeric="1" name="level" type="INTEGER"/>
             <column defaultValueNumeric="0" name="rewards_claimed" type="INTEGER"/>
@@ -88,6 +94,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-7">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="reward_hat">
             <column name="hat_id" type="BIGINT"/>
             <column name="id" type="BIGINT">
@@ -96,9 +103,11 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-8">
+        <validCheckSum>1:all</validCheckSum>
         <addUniqueConstraint columnNames="hat_id" constraintName="reward_hat_hat_id_key" tableName="reward_hat"/>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-9">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="reward_discount">
             <column name="amount" type="INTEGER">
                 <constraints nullable="false"/>
@@ -109,6 +118,7 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-10">
+        <validCheckSum>1:all</validCheckSum>
         <createTable tableName="users_owned_hats">
             <column name="owned_hats_id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="users_owned_hats_pkey"/>
@@ -119,15 +129,18 @@
         </createTable>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-11">
+        <validCheckSum>1:all</validCheckSum>
         <addForeignKeyConstraint baseColumnNames="user_user_id" baseTableName="users_owned_hats" constraintName="fk9ybqou9c3rncm7m06wxpoh7mt" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="users" validate="true"/>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-12">
         <addForeignKeyConstraint baseColumnNames="equipped_hat_id" baseTableName="users" constraintName="fkb1fnunfjogy2sxwfr7ffn04ps" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="hat" validate="true"/>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-13">
+        <validCheckSum>1:all</validCheckSum>
         <addForeignKeyConstraint baseColumnNames="owned_hats_id" baseTableName="users_owned_hats" constraintName="fkl8nde7qgif277u3vyu8u7qums" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="hat" validate="true"/>
     </changeSet>
     <changeSet author="anton (generated)" id="1712444481492-14">
+        <validCheckSum>1:all</validCheckSum>
         <addForeignKeyConstraint baseColumnNames="hat_id" baseTableName="reward_hat" constraintName="fknntkxflek2mdwmyhbx1jv2mky" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="hat" validate="true"/>
     </changeSet>
 </databaseChangeLog>
