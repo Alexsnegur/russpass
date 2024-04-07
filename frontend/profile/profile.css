@@ -133,7 +133,7 @@
 	width: 100%;
 }
 
-.roll-present-item-body-img-no-active::after {
+.roll-present-item.dark>.roll-present-item-body>.roll-present-item-body-img-no-active::after {
 	content: '';
 	position: absolute;
 	width: 100%;
