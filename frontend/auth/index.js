@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('login', JSON.stringify(authInputLogin.value))
     formData.append('pass', JSON.stringify(authInputPassword.value))
 
+    localStorage.setItem('name', authInputLogin.value)
+
     const response = await fetch('http://192.168.0.34:8181/user', {
       method: 'POST',
       headers: {
