@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// })
 	getBD()
 	async function getBD() {
-		const response = await fetch('http://192.168.0.34:8181/hotel ')
+		const response = await fetch('http://192.168.5.183:8181/hotel ')
 		const result = await response.json()
 
 		// Item Hotel

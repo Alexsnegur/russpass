@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = localStorage.getItem('id')
     console.log(id);
 
-    const response = await fetch(`http://192.168.0.34:8181/hotel/${id}`)
+    const response = await fetch(`http://192.168.5.183:8181/hotel/${id}`)
     const result = response.json()
 
     console.log(result);
