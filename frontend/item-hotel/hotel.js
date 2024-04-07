@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     result.then((res, req) => {
       console.log(res, req);
-      itemHeaderWrapperPhotoImg.src = '../../../' + res.photo
-      itemItemNomerPhoto.src = '../../../' + res.photo
+      itemHeaderWrapperPhotoImg.src = '../img/отель1.jpg'
+      itemItemNomerPhoto.src = '../img/отель1.jpg'
       itemHeaderTitle.innerHTML = res.name
-      itemItemNomerPhotoImgSecond.src = '../../../' + res.photo
+      itemItemNomerPhotoImgSecond.src = '../img/отель1.jpg'
     })
   }
 
