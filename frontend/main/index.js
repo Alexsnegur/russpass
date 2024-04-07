@@ -23,6 +23,44 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
+	if(localStorage.getItem('goGroup') === 'true') {
+		// localStorage.setItem('goGroup', 'false')
+
+		const dialogCatText = document.querySelector('.dialog-cat-text')
+		const dialogGroup = document.createElement('div')
+		const wrapperwrapper = document.createElement('div')
+		const wrapperBtnGroup = document.createElement('div')
+		const groupGo = document.createElement('button')
+		const groupStop = document.createElement('button')
+
+		dialogCatText.innerHTML = ''
+
+		wrapperwrapper.classList.add('wrapperwrapper')
+		wrapperBtnGroup.classList.add('wrapperChatNewSobes')
+		groupGo.classList.add('wrapperChatNewSobes-go')
+		groupStop.classList.add('wrapperChatNewSobes-stop')
+		dialogGroup.classList.add('wrapperChatNewSobes-dialog')
+
+		dialogGroup.innerHTML = 'Мы можем подобрать Вам компанию в путешествие! Для этого мы Вас объединим в беседу, где вы сможете вместе спланировать дальнейшее путешествие'
+		groupGo.innerHTML = 'Хочу!'
+		groupStop.innerHTML = 'Нет'
+
+		groupGo.addEventListener('click', () => {
+			console.log('урра');
+			dialogCatText.innerHTML = 'Скоро мы найдем Вам группу'
+		})
+
+		groupStop.addEventListener('click', () => {
+			dialogCatText.innerHTML = 'Жаль :('
+			
+			// catDismiss()
+		})
+
+		wrapperBtnGroup.append(groupGo, groupStop)
+		wrapperwrapper.append(dialogGroup, wrapperBtnGroup)
+		dialogCatText.append(wrapperwrapper)
+	}
+
 	smallCat.addEventListener('click', () => {
 		smallCat.classList.add('small-icon-cat-hide')
 

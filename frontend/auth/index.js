@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(response.ok) {
       const result = await response.json()
-
+      
       localStorage.setItem('idUser', result.id)
       localStorage.setItem('score', result.score)
 
