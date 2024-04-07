@@ -103,7 +103,9 @@
 							<div class="roll-present-barr-header-text">Опыт: </div>
 							<div class="roll-present-barr-header-text"><span id="xp"></span>/1000</div>
 						</div>
-						<div class="roll-present-barr-body"></div>
+						<div class="roll-present-barr-body">
+							<div id="bar" class="roll-present-barr-body-after"></div>
+						</div>
 					</div>
 				</div>
 				<div class="roll-present-body">
@@ -199,14 +201,14 @@
 				<div class="custom-level">
 					<div class="custom-level-text">Уровень</div>
 					<div class="custom-level-icon">
-						<div class="custom-level-icon-text">3</div>
+						<div id="level-big" class="custom-level-icon-text">3</div>
 					</div>
 				</div>
 				<div class="custom-things">
 					<div class="custom-things-item">
 						<div class="custom-things-item-text">Шапка</div>
-						<div class="custom-things-item-item">
-							<img class="custom-things-item-item-icon" src="../img/hat.png" alt="">
+						<div class="custom-things-item-item" onclick="equipHat()">
+							<img id="hat-image" class="custom-things-item-item-icon d-none" src="../img/hat.png" alt="">
 						</div>
 					</div>
 					<div class="custom-things-item">
@@ -217,7 +219,6 @@
 					<div class="custom-things-item">
 						<div class="custom-things-item-text">Ноги</div>
 						<div class="custom-things-item-item">
-							<img class="custom-things-item-item-icon" src="../img/shoes.png" alt="">
 						</div>
 					</div>
 				</div>

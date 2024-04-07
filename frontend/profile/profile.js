@@ -15,10 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	const level = document.getElementById("level");
 	fetch("http://localhost:8181/level/1")
 		.then(response => response.json())
-		.then(levelResponse => level.textContent = levelResponse);
-
-	for (let i = 1; i <= level; ++i) {
-		const present = document.getElementById("present-" + i);		
-		present.classList.add("available");
-	}
+		.then(levelResponse => {
+			level.textContent = levelResponse;
+			document.getElementById("level-big").textContent = levelResponse;
+		});
+	
+	const barWidth = (xp.textContent / 10);
+	const bar = document.getElementById("bar");
+	bar.style.width = barWidth + "%";
 })
+
+function equipHat() {
+	console.log("Equipped")
+	document.getElementById("hat-image").classList.remove("d-none");
+}
